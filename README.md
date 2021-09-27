@@ -41,3 +41,8 @@ Step 6: Cluster Details
 kubectl cluster-info
 kubectl get nodes
 ```
+EC2 Instance
+```
+sudo usermod -a -G docker $USER
+reboot
+```
