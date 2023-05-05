@@ -25,8 +25,8 @@ metadata:
   name: ${username}
   namespace: ${namespace}
 ---
-kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
 metadata:
   name: ${username}
 rules:
@@ -34,8 +34,8 @@ rules:
   resources: ["*"]
   verbs: ["*"]
 ---
-kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
 metadata:
   name: ${username}
 roleRef:
@@ -45,7 +45,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ${username}
-  namespace: $namespace
+  namespace: ${namespace}
 EOF
 
 export SECRET=$(kubectl get sa $username -o json -n kube-system | jq -r .secrets[].name)
@@ -75,4 +75,4 @@ users:
     token: ${SA_SECRET_TOKEN}
 EOF
 
-echo "Kube-config file is generated"
+echo "kube-config file is generated"
