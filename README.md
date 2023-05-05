@@ -1,1 +1,1 @@
-#minikube all about 
+# minikube
