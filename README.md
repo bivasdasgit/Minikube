@@ -1,5 +1,6 @@
 # minikube
 
+# Execute ClusterRole Admin Config
 ```
-./<> kube-system devops-cluster-admin
+./create-admin-config.sh kube-system devops-cluster-admin
 ```
