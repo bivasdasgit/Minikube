@@ -16,13 +16,13 @@ tar -xvzf helm-v3.10.0-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 
 sudo minikube start --vm-driver=none 
-sudo minikube start --vm-driver=none --apiserver-ips=<IP1>,<IP2>
+#sudo minikube start --vm-driver=none --apiserver-ips=<IP1>,<IP2>
 
-sudo minikube start \
-       --vm-driver=none --apiserver-ips=44.197.198.139,172.31.0.47 \
-       --extra-config=apiserver.authorization-mode=Node,RBAC \
-       --extra-config=apiserver.oidc-issuer-url=https://keycloak.das.quest/realms/local/ \
-       --extra-config=apiserver.oidc-client-id=gatekeeper \
-       --extra-config=apiserver.oidc-username-claim=user_attribute \
-       --extra-config=apiserver.groups-claim=groups
-
+#sudo minikube start \
+#       --vm-driver=none \
+#       --extra-config=apiserver.authorization-mode=Node,RBAC \
+#       --extra-config=apiserver.oidc-issuer-url=https://keycloak.das.quest/realms/local/ \
+#       --extra-config=apiserver.oidc-client-id=gatekeeper \
+#       --extra-config=apiserver.oidc-username-claim=name \
+#       --extra-config=apiserver.groups-claim=groups
+#       --extra-config=apiserver.oidc-ca-file=/home/ubuntu/minikube/kubernetes_oidc_oauth/tls.crt
