@@ -17,6 +17,7 @@ mv linux-amd64/helm /usr/local/bin/helm
 
 #sudo minikube start --vm-driver=none --apiserver-ips=<IP1>,<IP2>
 sudo minikube start --vm-driver=none 
+minikube addons enable ingress
 
 #sudo minikube start \
 #       --vm-driver=none \
