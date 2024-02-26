@@ -2,7 +2,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 apt install docker.io -y
 minikube config set driver docker
-minikube start --driver=docker --force
+minikube start --driver=docker --force  --apiserver-ips=<IP1>,<IP2>
 curl -LO https://dl.k8s.io/release/v1.26.3/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
