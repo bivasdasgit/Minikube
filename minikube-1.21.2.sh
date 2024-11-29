@@ -2,6 +2,7 @@ curl -LO https://dl.k8s.io/release/v1.22.5/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo apt-get update && \
+sudo apt install nfs-common
 sudo apt-get install docker.io jq -y
 sudo systemctl start docker 
 curl -LO https://github.com/kubernetes/minikube/releases/download/v1.22.0/minikube-linux-amd64
@@ -27,3 +28,8 @@ minikube addons enable ingress
 #       --extra-config=apiserver.oidc-username-claim=name \
 #       --extra-config=apiserver.groups-claim=groups
 #       --extra-config=apiserver.oidc-ca-file=/home/ubuntu/minikube/kubernetes_oidc_oauth/tls.crt
+# install nfs-server provisoner
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+    --set nfs.server=<ADD Server> \
+    --set nfs.path=/mnt/myshareddir
