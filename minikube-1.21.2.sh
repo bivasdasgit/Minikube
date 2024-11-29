@@ -29,7 +29,8 @@ minikube addons enable ingress
 #       --extra-config=apiserver.groups-claim=groups
 #       --extra-config=apiserver.oidc-ca-file=/home/ubuntu/minikube/kubernetes_oidc_oauth/tls.crt
 # install nfs-server provisoner
+kubectl create ns platform
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
-helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner -n platform \
     --set nfs.server=<ADD Server> \
     --set nfs.path=/mnt/myshareddir
